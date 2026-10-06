@@ -1,0 +1,10 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>LAYR Browser fixture</title>
+<nav><a href="#form">Home</a></nav><main id="form"><h1>Sign in</h1><label for="email">Email</label><input id="email" type="email" placeholder="name@example.com"><label for="password">Password</label><input id="password" type="password"><button id="continue">Continue</button><button id="replace">Replace button</button><button id="open">Open dialog</button><button id="hover">Hover target</button><button id="disabled" disabled>Disabled action</button><output id="hover-result"></output><dialog id="dialog"><h2>Welcome</h2><button id="close">Close</button></dialog><div id="scroller" style="height:100px;overflow:auto"><div style="height:400px">Nested scroll content</div></div></main>
+<script>
+const continueButton = document.getElementById('continue');
+continueButton.addEventListener('click', () => { continueButton.textContent = 'Submitted'; });
+document.getElementById('replace').addEventListener('click', () => { const prior = document.getElementById('continue'); const replacement = prior.cloneNode(true); replacement.addEventListener('click', () => { replacement.textContent = 'Submitted'; }); prior.replaceWith(replacement); });
+document.getElementById('open').addEventListener('click', () => document.getElementById('dialog').showModal());
+document.getElementById('hover').addEventListener('mouseenter', () => document.getElementById('hover-result').textContent = 'Hovered');
+document.getElementById('close').addEventListener('click', () => document.getElementById('dialog').close());
+</script></html>

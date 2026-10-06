@@ -1,0 +1,10 @@
+{
+  "name": "@layr/browser-driver-chrome",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "dependencies": {"@layr/browser": "0.0.1"},
+  "files": ["dist", "README.md"]
+}

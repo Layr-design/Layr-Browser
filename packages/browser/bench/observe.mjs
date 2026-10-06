@@ -1,0 +1,10 @@
+import { performance } from 'node:perf_hooks';
+import { createBrowser, serializeObservation, diffObservations } from '../dist/src/index.js';
+import { FakeBrowserDriver } from '../dist/src/fake.js';
+const nodes = [{ node: 'root', tag: 'document' }, ...Array.from({ length: 1000 }, (_, i) => ({ node: `n${i}`, parent: 'root', tag: 'button', name: `Button ${i}` }))];
+const driver = new FakeBrowserDriver({ url: 'https://example.test', viewport: { width: 800, height: 600 }, scroll: { x: 0, y: 0, maxX: 0, maxY: 0 }, nodes });
+const browser = await createBrowser({ driver });
+const start = performance.now(); const first = await browser.observe(); const observationMs = performance.now() - start;
+const next = await browser.observe(); const diffStart = performance.now(); diffObservations(first, next); const diffMs = performance.now() - diffStart;
+console.log(JSON.stringify({ observationMs, rawNodes: nodes.length, semanticNodes: first.elements.length, serializedCharacters: serializeObservation(first).length, diffMs }, null, 2));
+await browser.dispose();

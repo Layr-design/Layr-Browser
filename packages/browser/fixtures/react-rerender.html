@@ -1,0 +1,5 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Rerender fixture</title><main><h1>Rerender</h1><button id="save">Save</button><button id="replace">Replace</button><output id="result"></output></main><script>
+function wire(button) { button.addEventListener('click', () => { document.getElementById('result').textContent = 'Saved'; }); }
+wire(document.getElementById('save'));
+document.getElementById('replace').addEventListener('click', () => { const replacement = document.createElement('button'); replacement.id = 'save'; replacement.textContent = 'Save'; wire(replacement); document.getElementById('save').replaceWith(replacement); });
+</script></html>

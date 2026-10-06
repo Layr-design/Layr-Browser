@@ -1,0 +1,1 @@
+{"name":"@layr/browser-test-extension","version":"0.0.1","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs"}}

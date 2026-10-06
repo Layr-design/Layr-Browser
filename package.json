@@ -1,0 +1,7 @@
+{
+  "name": "layr-browser-workspace",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "scripts": {"typecheck": "tsc -b packages/browser/tsconfig.json packages/browser-driver-chrome/tsconfig.json", "build": "tsc -b packages/browser/tsconfig.json packages/browser-driver-chrome/tsconfig.json && node packages/browser-test-extension/scripts/build.mjs", "test": "npm run build && node --test packages/browser/test/*.test.mjs packages/browser-driver-chrome/test/*.test.mjs packages/browser-test-extension/test/*.test.mjs", "lint": "node scripts/lint.mjs", "fixtures": "python3 -m http.server 4173 --bind 127.0.0.1 --directory packages/browser/fixtures"},
+  "devDependencies": {"typescript": "^5.8.3"}
+}

@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "LAYR Browser Test Harness",
+  "version": "0.0.1",
+  "description": "Local test harness for the LAYR browser library",
+  "permissions": ["debugger", "tabs"],
+  "host_permissions": ["http://127.0.0.1/*", "http://localhost/*"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "Open LAYR browser tests" }
+}

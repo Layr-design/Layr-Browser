@@ -1,0 +1,6 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Modal fixture</title><main><h1>Modal</h1><button id="open">Open dialog</button><dialog aria-label="Create project"><label>Project name <input id="project"></label><button id="create">Create</button><button id="close">Close</button></dialog><output id="result"></output></main><script>
+const dialog = document.querySelector('dialog');
+document.getElementById('open').onclick = () => dialog.showModal();
+document.getElementById('close').onclick = () => dialog.close();
+document.getElementById('create').onclick = () => { document.getElementById('result').textContent = 'Created ' + document.getElementById('project').value; dialog.close(); };
+</script></html>

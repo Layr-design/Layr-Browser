@@ -1,0 +1,5 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Virtual list fixture</title><style>#list{height:200px;overflow:auto;border:1px solid;width:240px}.row{height:40px}</style><main><h1>Virtual list</h1><div id="list" role="list" aria-label="Virtual results" tabindex="0"><div id="spacer" style="height:4000px;position:relative"></div></div><output id="range"></output></main><script>
+const list=document.getElementById('list'),spacer=document.getElementById('spacer'),range=document.getElementById('range');
+function render(){const first=Math.floor(list.scrollTop/40);spacer.replaceChildren();for(let i=first;i<Math.min(100,first+7);i++){const row=document.createElement('div');row.className='row';row.setAttribute('role','listitem');row.style.position='absolute';row.style.top=(i*40)+'px';row.textContent='Item '+i;spacer.append(row)}range.textContent='Visible '+first;}
+list.addEventListener('scroll',render);render();
+</script></html>
